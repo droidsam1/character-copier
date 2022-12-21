@@ -13,6 +13,10 @@ public class Copier {
     }
 
     public void Copy() {
-        
+        char inputChar = source.GetChar();
+        if (inputChar != '\n') {
+            destination.SetChar(inputChar);
+        }
+
     }
 }
