@@ -1,4 +1,4 @@
-# Mocking Kata (Copier)
+# [Mocking Kata (Copier)](https://www.planetgeek.ch/2010/03/31/mocking-kata-copier-net/)
 
 * This is part of my practice of exercises provided by the book _Agile Technical Practices Distilled_
 
