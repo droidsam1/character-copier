@@ -3,11 +3,16 @@ package com.droidsam.app;
 
 public class Copier {
 
+    private final ISource source;
+    private final IDestination destination;
+
     public Copier(ISource source, IDestination destination) {
-        throw new RuntimeException("Not implemented");
+
+        this.source = source;
+        this.destination = destination;
     }
 
     public void Copy() {
-        throw new RuntimeException("Not implemented");
+        
     }
 }
