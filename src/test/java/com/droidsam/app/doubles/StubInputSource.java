@@ -2,20 +2,20 @@ package com.droidsam.app.doubles;
 
 import com.droidsam.app.ISource;
 
-public class StubbedInputSource implements ISource {
+public class StubInputSource implements ISource {
     private final int numberCallsBeforeEmpty;
     private int numberOfCalls = 0;
 
-    private StubbedInputSource(int numberCallsBeforeEmpty) {
+    private StubInputSource(int numberCallsBeforeEmpty) {
         this.numberCallsBeforeEmpty = numberCallsBeforeEmpty;
     }
 
-    public static StubbedInputSource onlyOneCharBeforeEmpty() {
-        return new StubbedInputSource(1);
+    public static StubInputSource oneCharOnly() {
+        return new StubInputSource(1);
     }
 
-    public static StubbedInputSource empty() {
-        return new StubbedInputSource(0);
+    public static StubInputSource empty() {
+        return new StubInputSource(0);
     }
 
     @Override
