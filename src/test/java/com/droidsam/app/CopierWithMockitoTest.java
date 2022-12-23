@@ -9,13 +9,17 @@ class CopierWithMockitoTest {
 
     @Test
     void shouldNotCopyAnyCharWhenInputIsEmpty() {
-        var input = mock(ISource.class);
+        var input = emptySource();
         var output = spy(IDestination.class);
-
-        when(input.GetChar()).thenReturn('\n');
-
+        
         new Copier(input, output).Copy();
 
         verify(output, never()).SetChar(any(char.class));
+    }
+
+    private ISource emptySource() {
+        var input = mock(ISource.class);
+        when(input.GetChar()).thenReturn('\n');
+        return input;
     }
 }
