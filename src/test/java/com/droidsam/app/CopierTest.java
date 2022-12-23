@@ -1,6 +1,5 @@
 package com.droidsam.app;
 
-import com.droidsam.app.doubles.EmptySource;
 import com.droidsam.app.doubles.StubbedInputSource;
 import com.droidsam.app.mock.SpyOutputSource;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,7 @@ class CopierTest {
 
     @Test
     void shouldNotCopyAnyCharWhenInputIsEmpty() {
-        var input = new EmptySource();
+        var input = StubbedInputSource.empty();
         var output = new SpyOutputSource();
 
         new Copier(input, output).Copy();

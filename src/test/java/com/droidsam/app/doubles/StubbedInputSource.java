@@ -14,6 +14,10 @@ public class StubbedInputSource implements ISource {
         return new StubbedInputSource(1);
     }
 
+    public static StubbedInputSource empty() {
+        return new StubbedInputSource(0);
+    }
+
     @Override
     public char GetChar() {
         if (numberOfCalls++ < numberCallsBeforeEmpty) {
