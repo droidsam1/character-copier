@@ -7,6 +7,9 @@ import static org.mockito.Mockito.*;
 
 class CopierWithMockitoTest {
 
+    public static final char DUMMY_CHAR = 'A';
+    public static final char NEW_LINE_CHAR = '\n';
+
     @Test
     void shouldNotCopyAnyCharWhenInputIsEmpty() {
         var input = emptySource();
@@ -40,19 +43,19 @@ class CopierWithMockitoTest {
 
     private ISource tenChars() {
         var input = mock(ISource.class);
-        when(input.GetChar()).thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('\n');
+        when(input.GetChar()).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(DUMMY_CHAR).thenReturn(NEW_LINE_CHAR);
         return input;
     }
 
     private ISource oneCharOnly() {
         var input = mock(ISource.class);
-        when(input.GetChar()).thenReturn('A').thenReturn('\n');
+        when(input.GetChar()).thenReturn(DUMMY_CHAR).thenReturn(NEW_LINE_CHAR);
         return input;
     }
 
     private ISource emptySource() {
         var input = mock(ISource.class);
-        when(input.GetChar()).thenReturn('\n');
+        when(input.GetChar()).thenReturn(NEW_LINE_CHAR);
         return input;
     }
 }
