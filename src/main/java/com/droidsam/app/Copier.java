@@ -13,10 +13,12 @@ public class Copier {
     }
 
     public void Copy() {
-        char inputChar = source.GetChar();
-        if (inputChar != '\n') {
-            destination.SetChar(inputChar);
-        }
-
+        char inputChar;
+        do {
+            inputChar = source.GetChar();
+            if (inputChar != '\n') {
+                destination.SetChar(inputChar);
+            }
+        } while (inputChar != '\n');
     }
 }

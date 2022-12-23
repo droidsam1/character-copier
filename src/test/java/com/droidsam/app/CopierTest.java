@@ -27,4 +27,14 @@ class CopierTest {
 
         assertEquals(1, output.getTotalReceivedChars());
     }
+
+    @Test
+    void shouldCopyMultipleCharsWhenInputHasMultipleChars() {
+        var input = StubInputSource.tenChars();
+        var output = new SpyOutputSource();
+
+        new Copier(input, output).Copy();
+
+        assertEquals(10, output.getTotalReceivedChars());
+    }
 }

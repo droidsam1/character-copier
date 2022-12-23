@@ -14,6 +14,10 @@ public class StubInputSource implements ISource {
         return new StubInputSource(1);
     }
 
+    public static StubInputSource tenChars() {
+        return new StubInputSource(10);
+    }
+
     public static StubInputSource empty() {
         return new StubInputSource(0);
     }
