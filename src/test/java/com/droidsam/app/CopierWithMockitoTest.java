@@ -27,6 +27,23 @@ class CopierWithMockitoTest {
         verify(output, atMostOnce()).SetChar(any(char.class));
     }
 
+    @Test
+    void shouldCopyMultipleCharsWhenInputHasMultipleChars() {
+        var input = tenChars();
+        var output = spy(IDestination.class);
+
+        new Copier(input, output).Copy();
+
+        verify(output, times(10)).SetChar(any(char.class));
+    }
+
+
+    private ISource tenChars() {
+        var input = mock(ISource.class);
+        when(input.GetChar()).thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('A').thenReturn('\n');
+        return input;
+    }
+
     private ISource oneCharOnly() {
         var input = mock(ISource.class);
         when(input.GetChar()).thenReturn('A').thenReturn('\n');
