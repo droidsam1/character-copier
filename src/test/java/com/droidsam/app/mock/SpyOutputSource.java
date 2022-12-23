@@ -4,6 +4,7 @@ import com.droidsam.app.IDestination;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SpyOutputSource implements IDestination {
 
@@ -20,5 +21,9 @@ public class SpyOutputSource implements IDestination {
 
     public int getTotalReceivedChars() {
         return receivedChars.size();
+    }
+
+    public char[] getFullOutput() {
+        return receivedChars.stream().map(Object::toString).collect(Collectors.joining()).toCharArray();
     }
 }

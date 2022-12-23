@@ -4,6 +4,7 @@ import com.droidsam.app.doubles.StubInputSource;
 import com.droidsam.app.mock.SpyOutputSource;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CopierTest {
@@ -36,5 +37,15 @@ class CopierTest {
         new Copier(input, output).Copy();
 
         assertEquals(10, output.getTotalReceivedChars());
+    }
+
+    @Test
+    void shouldCopySameCharsFromInputToSource() {
+        var input = StubInputSource.oneCharOnly();
+        var output = new SpyOutputSource();
+
+        new Copier(input, output).Copy();
+
+        assertArrayEquals(input.getFullInput(), output.getFullOutput());
     }
 }

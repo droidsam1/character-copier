@@ -34,4 +34,8 @@ public class StubInputSource implements ISource {
         }
         return '\n';
     }
+
+    public char[] getFullInput() {
+        return fullSourceChars;
+    }
 }
